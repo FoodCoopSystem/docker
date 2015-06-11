@@ -18,6 +18,7 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
+RUN echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> /etc/profile
 
 
 # Add image configuration and scripts

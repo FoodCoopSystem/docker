@@ -9,9 +9,8 @@ web:
   volumes:
     - .:/var/www
     - logs/apache2:/var/log/apache2
-  image: harijari/www:generic
+  image: foodcoopsystem/dev-www
   links:
-    - memcache
     - db
   ports:
     - "9080:80"
