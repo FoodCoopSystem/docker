@@ -7,11 +7,11 @@ db:
     - MYSQL_DATABASE=foodcoop
 web:
   volumes:
-    - .:/var/www
+    - app:/var/www
     - logs/apache2:/var/log/apache2
   image: foodcoopsystem/dev-www
   links:
     - db
   ports:
-    - "9080:80"
+    - "80:80"
     - "9022:22"
