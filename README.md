@@ -28,7 +28,7 @@ Note: This instruction will fail, if you have apache or mysql server installed o
 * Install docker-compose: http://docs.docker.com/compose/install/
 * Install drush on your machine: apt-get install drush
 * Add alias for foodcoop installation in your /etc/hosts file: sudo echo "127.0.0.1 www.foodcoopsystem.local" >> /etc/hosts
-* Copy drush/foodcoop.drush.alias.inc into ~/.drush/ subdirectory (create it if it doesn't exist)
+* Copy drush/foodcoopsystem.aliases.drushrc.php into ~/.drush/ subdirectory (create it if it doesn't exist)
 * Copy compose/docker-compose.yml file into your foodcoop codebase. 
 * Execute docker-compose up (This will pull dependencies and create all required containers).
 * Copy your public key into www container: ssh-copy-id root@www.foodcoopsystem.local
