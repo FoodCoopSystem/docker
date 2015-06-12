@@ -37,7 +37,11 @@ RUN a2enmod ssl
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin
-RUN composer global require drush/drush:7.*
+RUN git clone https://github.com/drush-ops/drush.git /usr/local/src/drush && \
+  cd /usr/local/src/drush && \
+  git checkout 7.x && \
+  ln -s /usr/local/src/drush/drush /usr/bin/drush && \
+  composer install
 
 
 #Enviornment variables to configure php
