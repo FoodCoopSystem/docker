@@ -3,12 +3,36 @@
 This repository includes docker container sources for a docker image including www server for foodcoopsystem developers. It's basically a Apache + PHP (5.6) server, but has some addons that might be usefull in foodcoopsystem (and probably any Drupal based) application.
 
 # Short specification
+This image includes following tools:
 
 * Installed composer
 * Installed latest stable drush from 7.x branch
 * Installed development and profiling extensions like php5-xdebug and php5-xhprof.
 * Installed PHP 5.6 (as apache2 module and php5-cli).
 
+# Port forwarding and access details
 
-# Creating your own environement for foodcoopsystem
+Host ssh port: 9022. User: root. Password: root. 
+Host mysql port: 3306. User root. Password: root. Database: foodcoop
+Host www port: 80
 
+If you are logged in to ssh service, host name for mysql server is "db".
+
+You can access those services, simple by specifing 127.0.0.1 as your host and one of required ports.
+
+
+# Creating your own environement for foodcoopsystem (Ubuntu)
+Note: This instruction will fail, if you have apache or mysql server installed on your machine. This instruction assumes that 80 and 3306 ports are free. 
+
+* Install docker: http://docs.docker.com/installation/
+* Install docker-compose: http://docs.docker.com/compose/install/
+* Install drush on your machine: apt-get install drush
+* Add alias for foodcoop installation in your /etc/hosts file: sudo echo "127.0.0.1 www.foodcoopsystem.local" >> /etc/hosts
+* Copy drush/foodcoop.drush.alias.inc into ~/.drush/ subdirectory (create it if it doesn't exist)
+* Copy compose/docker-compose.yml file into your foodcoop codebase. 
+* Execute docker-compose up (This will pull dependencies and create all required containers).
+* Copy your public key into www container: ssh-copy-id root@www.foodcoopsystem.local
+* If you want to stop containers: docker-compose stop
+* If you want to return to work, and start environement: docker-compose start
+
+docker-compose.yml file will share app subdirectory from foodcoop codebase as /var/www directory at www container. You can use drush with alias @foodcoopsystem.local, ie drush @foodcoopsystem.local status 
