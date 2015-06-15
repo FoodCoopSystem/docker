@@ -1,8 +1,8 @@
-# WWW server for foodcoop system developers
+# Development environment for FoodCoopSystem
 
 This repository includes docker container sources for a docker image including www server for foodcoopsystem developers. It's basically a Apache + PHP (5.6) server, but has some addons that might be usefull in foodcoopsystem (and probably any Drupal based) application.
 
-# Short specification
+## Short specification
 This image includes following tools:
 
 * Installed composer
@@ -10,7 +10,8 @@ This image includes following tools:
 * Installed development and profiling extensions like php5-xdebug and php5-xhprof.
 * Installed PHP 5.6 (as apache2 module and php5-cli).
 
-# Port forwarding and access details
+
+## Port forwarding and access details
 
 Host ssh port: 9022. User: root. Password: root. 
 Host mysql port: 3306. User root. Password: root. Database: foodcoop
@@ -21,7 +22,7 @@ If you are logged in to ssh service, host name for mysql server is "db".
 You can access those services, simple by specifing 127.0.0.1 as your host and one of required ports.
 
 
-# Creating your own environement for foodcoopsystem (Ubuntu)
+## Creating your own environement for foodcoopsystem (Ubuntu)
 Note: This instruction will fail, if you have apache or mysql server installed on your machine. This instruction assumes that 80 and 3306 ports are free. 
 
 * Install docker: http://docs.docker.com/installation/
