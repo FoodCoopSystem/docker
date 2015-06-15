@@ -31,17 +31,17 @@ If you are logged in to ssh service, host name for mysql server is "db". You can
 
 
 ## Creating your docker environement (Ubuntu)
-> Note: This instruction will fail, if you have apache/nginx/<other web server> or mysql server running on your machine. This instruction assumes that 80 and 3306 ports are free. So if you have one just make sure they are stopped. E.g. on ubuntu: `sudo service apache2 stop` and `sudo service mysql stop`
+> Note: This instruction will fail, if you have apache/nginx/\<other web server\> or mysql server running on your machine. This instruction assumes that ports 80 and 3306 are free. You can simply fix this just stopping your service. E.g. on ubuntu: `sudo service apache2 stop` and `sudo service mysql stop`
 
 1. Install docker: http://docs.docker.com/installation/
 1. Install docker-compose: http://docs.docker.com/compose/install/
-1. Install drush on your machine: `sudo apt-get install drush`
-1. Add alias for foodcoop installation in your /etc/hosts file: `sudo echo "127.0.0.1 www.foodcoopsystem.local" >> /etc/hosts`
-1. Copy drush/foodcoopsystem.aliases.drushrc.php into ~/.drush/ subdirectory (create it if it doesn't exist)
-1. Copy compose/docker-compose.yml file into your foodcoop codebase. 
-1. Execute docker-compose up (This will pull dependencies and create all required containers).
-1. Copy your public key into www container: ssh-copy-id root@www.foodcoopsystem.local
-1. If you want to stop containers: docker-compose stop
-1. If you want to return to work, and start environement: docker-compose start
+1. Install drush on your machine: http://docs.drush.org/en/master/install/
+1. Add alias for foodcoop installation in your `/etc/hosts` file: `sudo echo "127.0.0.1 www.foodcoopsystem.local" >> /etc/hosts`
+1. Copy `drush/foodcoopsystem.aliases.drushrc.php` into `~/.drush/` subdirectory (create it if it doesn't exist)
+1. Copy `compose/docker-compose.yml` file into your foodcoop codebase. 
+1. Execute `docker-compose up` (This will pull dependencies and create all required containers).
+1. Copy your public key into www container: `ssh-copy-id root@www.foodcoopsystem.local`
+1. If you want to stop containers: `docker-compose stop`
+1. If you want to return to work, and start environement: `docker-compose start`
 
 File `docker-compose.yml` will share app subdirectory from foodcoop codebase as `/var/www` directory at www container. You can use drush with alias `@foodcoopsystem.local` without need to change to working directory so from any place in the system. E.g.: You can access it from you home dir `$ cd ~; drush @foodcoopsystem.local status`
