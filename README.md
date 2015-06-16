@@ -40,7 +40,7 @@ If you are logged in to ssh service, host name for mysql server is "db". You can
 1. Copy `drush/foodcoopsystem.aliases.drushrc.php` into `~/.drush/` subdirectory (create it if it doesn't exist)
 1. Copy `compose/docker-compose.yml` file into your foodcoop codebase. 
 1. Execute `docker-compose up` (This will pull dependencies and create all required containers).
-1. Copy your public key into www container: `ssh-copy-id root@www.foodcoopsystem.local`
+1. Copy your public key into www container: `ssh-copy-id root@www.foodcoopsystem.local -p9022`
 1. If you want to stop containers: `docker-compose stop`
 1. If you want to return to work, and start environement: `docker-compose start`
 
