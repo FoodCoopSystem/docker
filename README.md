@@ -9,6 +9,7 @@ This image includes following tools:
 * Installed latest stable drush from 7.x branch
 * Installed development and profiling extensions like php5-xdebug and php5-xhprof.
 * Installed PHP 5.6 (as apache2 module and php5-cli).
+* Installed stack for functional testing (Selenium, dummy X server and firefox)
 
 
 ## Credencials
