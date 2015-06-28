@@ -27,6 +27,7 @@ ADD scripts/start-selenium.sh /start-selenium.sh
 ADD scripts/run.sh /run.sh
 RUN chmod 755 /*.sh
 ADD configs/php/php.ini /etc/php5/apache2/conf.d/40_custom.ini
+ADD configs/php/php.ini /etc/php5/cli/conf.d/40_custom.ini
 ADD configs/supervisor/supervisord-apache2.conf /etc/supervisor/conf.d/supervisord-apache2.conf
 ADD configs/supervisor/supervisord-sshd.conf /etc/supervisor/conf.d/supervisord-sshd.conf
 ADD configs/supervisor/supervisord-selenium.conf /etc/supervisor/conf.d/supervisord-selenium.conf
@@ -52,6 +53,10 @@ RUN git clone https://github.com/drush-ops/drush.git /usr/local/src/drush && \
 # Xvfb and x11vnc
 RUN apt-get -y install xvfb x11vnc firefox openjdk-7-jre openbox
 RUN mkdir /usr/local/lib/selenium && curl http://selenium-release.storage.googleapis.com/2.46/selenium-server-standalone-2.46.0.jar -o /usr/local/lib/selenium/selenium.jar
+
+
+# Install helper tools
+RUN apt-get -y install vim
 
 
 #Enviornment variables to configure php
