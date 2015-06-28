@@ -9,6 +9,7 @@ This image includes following tools:
 * Installed latest stable drush from 7.x branch
 * Installed development and profiling extensions like php5-xdebug and php5-xhprof.
 * Installed PHP 5.6 (as apache2 module and php5-cli).
+* Installed stack for functional testing (Selenium, dummy X server and firefox)
 
 
 ## Credencials
@@ -45,3 +46,8 @@ If you are logged in to ssh service, host name for mysql server is "db". You can
 1. If you want to return to work, and start environement: `docker-compose start`
 
 File `docker-compose.yml` will share app subdirectory from foodcoop codebase as `/var/www` directory at www container. You can use drush with alias `@foodcoopsystem.local` without need to change to working directory so from any place in the system. E.g.: You can access it from you home dir `$ cd ~; drush @foodcoopsystem.local status`
+
+## FAQ
+* How to update image?
+ * Use command: `docker pull foodcoopsystem/dev-www:latest`. This command wil update the image.
+ * Go to FoodCoop codebase and run `docker-compose up` Here we rebuild the image and run system.
