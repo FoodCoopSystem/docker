@@ -37,7 +37,7 @@ If you are logged in to ssh service, host name for mysql server is "db". You can
 1. Install docker: http://docs.docker.com/installation/
 1. Install docker-compose: http://docs.docker.com/compose/install/
 1. Install drush on your machine: http://docs.drush.org/en/master/install/
-1. Add alias for foodcoop installation in your `/etc/hosts` file: `sudo echo "127.0.0.1 www.foodcoopsystem.local" >> /etc/hosts`
+1. Add alias for foodcoop and db container installation in your `/etc/hosts` file: `sudo echo "127.0.0.1 db www.foodcoopsystem.local" >> /etc/hosts`
 1. Copy `drush/foodcoopsystem.aliases.drushrc.php` into `~/.drush/` subdirectory (create it if it doesn't exist)
 1. Copy `compose/docker-compose.yml` file into your foodcoop codebase. 
 1. Execute `docker-compose up` (This will pull dependencies and create all required containers).
